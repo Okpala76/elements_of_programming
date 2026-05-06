@@ -14,5 +14,3 @@ def permutation(number: int):
 
 
 print(permutation(7))
-
-print(4 + 5)
