@@ -11,7 +11,7 @@ def binary_possiblities(n: int):
 
     def backtracking(index: int, current_list: list):
         if len(current_list) == n:
-            result.append(current_list) 
+            result.append(current_list.copy()) ## This was missing in my solution and i missed it .copy() this as make my returned values an empty array becase i did. pop later 
             return
         current_value = 0
         while current_value < 2:
