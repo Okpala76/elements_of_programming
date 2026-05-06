@@ -1,0 +1,2 @@
+## REASON FOR THIS FOLDER
+This folder was created to allow us explore multiply examples on recusion to get a mental understanding of the concept and be able to see a recursive implementation on first look and how to go about implementation
