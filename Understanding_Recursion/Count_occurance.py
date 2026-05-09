@@ -16,14 +16,10 @@ def count_occurance(string: str, value: str, count: int = 0, index: int = 0):
 
 
 ## def would have a proper optimization
-
-
 print(count_occurance("banana", "a"))
 
 
 ## the iterative optimization
-
-
 def iterative_count_occurance(string: str, value: str):
     count = 0
 
