@@ -1,20 +1,20 @@
-###the brute force is also not possible we cant tell number of iterations before hand   WRONG.. see reason below
-#
-# hence  brute force attempt , i thing fo base case first and that would be a situation wher ethe current list has same lent as the n numer  at that point we know that list is complete
-#
-#  and anything asides that we would loop through until our while increasing curent value till we get  current value over the 1 size
-#
+## Brute force using recursion
+## We are trying to find all binary possiblities in a number range 
+## So for 2 we will have [[0,0],[0,1],[1,0],[1,1]]
 
 
 def binary_possiblities(n: int):
     result = []
 
     def backtracking(index: int, current_list: list):
+        ## base case 
         if len(current_list) == n:
             result.append(
-                current_list.copy()
-            )  ## This was missing in my solution and i missed it .copy() this as make my returned values an empty array becase i did. pop later
+                current_list.copy() 
+            )  ## This was missing in my solution, .copy() call allows us to continue iteration on the existing list without clearing it out
             return
+        
+        ## recursive case
         current_value = 0
         while current_value < 2:
             current_list.append(current_value)
@@ -26,8 +26,9 @@ def binary_possiblities(n: int):
 
     return result
 
-
 print(binary_possiblities(2))
+
+
 
 
 # Alternative implementation
