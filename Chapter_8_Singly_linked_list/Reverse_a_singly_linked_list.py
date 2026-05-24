@@ -21,7 +21,9 @@ class ListNode:
 # move tail to head
 # then recurse
 from Merge_two_sorted_list import linked_list_to_list, build_linked_list
+
 ## Brute force
+
 
 def reverse_a_single_linked_list(linked_list: ListNode):
     result = []
