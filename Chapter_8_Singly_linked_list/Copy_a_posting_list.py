@@ -78,13 +78,19 @@ def optimized_copy_a_linked_list(head: PostingListNode):
         return None
 
     current = head
-
+    ## Stage one
+    # Here we intertwing the two lists to create another larger list where we have a node mix of
+    # Main node --> copied node
+    # A --> A' --> B --> B'
     while current:
         fwd = current.next
         current.next = PostingListNode(current.value)
         current.next = fwd
         current = fwd
 
+    ## Stage two
+    ## Here we take it a step further where we udpdate the copied nodes with there postings or jump pointers
+    # with ref from the main list nodes
     mixed_list = head
 
     while mixed_list:
@@ -94,6 +100,7 @@ def optimized_copy_a_linked_list(head: PostingListNode):
         mixed_list = copied.next
 
     ### Part 3
+    ## Here we then seperate the two of them from one another and go ahead to return the copied list
     completed_mixed_list = head
 
     # copied_list_head = PostingListNode(0)
