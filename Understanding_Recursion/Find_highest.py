@@ -1,5 +1,8 @@
-## The Highest number in the list pile is the bone of contention and we see this well. take a manupulation of values with the recusive function but how(we'll find out)
-#  My solution is one that drew knowledge from the last implemenataion
+# The Highest number in the list pile is the bone of
+# contention.
+# Take a manipulation of values with the recursive
+# function but how(we'll find out)
+# My solution is one that drew knowledge from my previous implemenataion.
 
 
 def find_highest(arr: list, highest: int = 0, index: int = 0):
@@ -10,6 +13,8 @@ def find_highest(arr: list, highest: int = 0, index: int = 0):
     if highest < arr[index]:
         highest = arr[index]
 
+    ## recursive case
+    
     return find_highest(
         arr, highest, index + 1
     )  ## I never returned the call on the recursive case
@@ -17,7 +22,33 @@ def find_highest(arr: list, highest: int = 0, index: int = 0):
 
 print(find_highest([1, 3, 7, 3, 9]))
 
-## this will easily be O(n)
+## this will easily be
+# Time O(n)
+# Space O(n)
+
+# find_highest(arr, highest=0, index=0)
+# │
+# ├─ highest becomes 1
+# │
+# └── find_highest(arr, highest=1, index=1)
+#     │
+#     ├─ highest becomes 3
+#     │
+#     └── find_highest(arr, highest=3, index=2)
+#         │
+#         ├─ highest becomes 7
+#         │
+#         └── find_highest(arr, highest=7, index=3)
+#             │
+#             ├─ 7 > 3, no change
+#             │
+#             └── find_highest(arr, highest=7, index=4)
+#                 │
+#                 ├─ highest becomes 9
+#                 │
+#                 └── find_highest(arr, highest=9, index=5)
+#                     │
+#                     └─ return 9
 
 ## AI optimized version
 
@@ -28,6 +59,7 @@ print(find_highest([1, 3, 7, 3, 9]))
 def find_highest_2(arr: list, index: int = 0):
     if len(arr) == 0:
         raise ValueError("This array can not be empty")
+
     ## base case
     if len(arr) - 1 == index:
         return arr[index]
@@ -40,3 +72,27 @@ def find_highest_2(arr: list, index: int = 0):
 print(find_highest_2([1, 2, 33, 44, 2]))
 
 # This is easily O(n) on bothe space and time complexity
+
+
+# find_highest_2([1,2,33,44,2], index=0)
+# │
+# └── find_highest_2([1,2,33,44,2], index=1)
+#     │
+#     └── find_highest_2([1,2,33,44,2], index=2)
+#         │
+#         └── find_highest_2([1,2,33,44,2], index=3)
+#             │
+#             └── find_highest_2([1,2,33,44,2], index=4)
+#                 │
+#                 └── return 2
+
+
+# index=4 returns 2
+#           ↑
+# index=3 max(44,2) = 44
+#           ↑
+# index=2 max(33,44) = 44
+#           ↑
+# index=1 max(2,44) = 44
+#           ↑
+# index=0 max(1,44) = 44    ``
