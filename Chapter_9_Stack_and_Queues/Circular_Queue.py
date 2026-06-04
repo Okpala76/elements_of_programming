@@ -9,7 +9,6 @@
 
 
 ## Brute force
-from attr import Out
 
 
 class Linear_Queue:
@@ -126,7 +125,7 @@ class Circular_Queue:
         return str(result)
 
 
-cq_que = Circular_Queue()
+cq_que = Circular_Queue(6)
 
 cq_que.enqueue(4)
 cq_que.enqueue(5)
@@ -137,4 +136,4 @@ print(cq_que.size())
 
 # This  has complexity
 # enqueue = O(1)
-# dequeue = O(n)
+# dequeue = O(1)
