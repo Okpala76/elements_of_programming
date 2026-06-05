@@ -120,3 +120,12 @@ def lowest_common_ancestor_op(root: BST, A: BST, B: BST):
 
 
 print(lowest_common_ancestor_op(a, d, e).value)
+
+
+# Bruteforce
+# "How do I get from the root to each node?"
+
+# Optimization
+# "What useful information can each subtree return upward?"
+
+# This is actually one of those EPI problems where the optimization is not mainly about Big-O time.
