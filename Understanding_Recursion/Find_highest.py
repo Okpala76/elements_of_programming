@@ -14,7 +14,7 @@ def find_highest(arr: list, highest: int = 0, index: int = 0):
         highest = arr[index]
 
     ## recursive case
-    
+
     return find_highest(
         arr, highest, index + 1
     )  ## I never returned the call on the recursive case
@@ -63,7 +63,8 @@ def find_highest_2(arr: list, index: int = 0):
     ## base case
     if len(arr) - 1 == index:
         return arr[index]
-
+    
+    ## Recursive Case
     highest_rest = find_highest_2(arr, index + 1)
 
     return max(arr[index], highest_rest)
@@ -71,7 +72,7 @@ def find_highest_2(arr: list, index: int = 0):
 
 print(find_highest_2([1, 2, 33, 44, 2]))
 
-# This is easily O(n) on bothe space and time complexity
+# This is easily O(n) on both space and time complexity
 
 
 # find_highest_2([1,2,33,44,2], index=0)
@@ -95,4 +96,4 @@ print(find_highest_2([1, 2, 33, 44, 2]))
 #           ↑
 # index=1 max(2,44) = 44
 #           ↑
-# index=0 max(1,44) = 44    ``
+# index=0 max(1,44) = 44   
