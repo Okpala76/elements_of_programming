@@ -63,7 +63,7 @@ def find_highest_2(arr: list, index: int = 0):
     ## base case
     if len(arr) - 1 == index:
         return arr[index]
-    
+
     ## Recursive Case
     highest_rest = find_highest_2(arr, index + 1)
 
@@ -96,4 +96,4 @@ print(find_highest_2([1, 2, 33, 44, 2]))
 #           ↑
 # index=1 max(2,44) = 44
 #           ↑
-# index=0 max(1,44) = 44   
+# index=0 max(1,44) = 44
