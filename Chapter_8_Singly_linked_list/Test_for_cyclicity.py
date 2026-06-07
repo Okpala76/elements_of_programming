@@ -13,7 +13,7 @@
 
 # Hence my solution
 from Merge_two_sorted_list import build_linked_list
-from Reverse_a_singly_linked_list import ListNode
+from Chapter_8_Singly_Linked_List.Reverse_a_singly_linked_list import ListNode
 
 
 def build_cyclic_linked_list(

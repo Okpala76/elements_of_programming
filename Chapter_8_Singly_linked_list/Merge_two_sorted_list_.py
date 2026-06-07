@@ -34,6 +34,14 @@ def linked_list_to_list(head: ListNode | None) -> list[int]:
 # the lists provided as input. Your function should use O(1) additional storage, as
 # illustrated in Figure 8.3. The only field you can change in a node is next.
 
+# Bubble sort works by repeatedly comparing adjacent values.
+#
+# During each pass, the largest unsorted value "bubbles up"
+# to its correct position at the end of the list.
+#
+# Once a value reaches its final position, we don't need to
+# look at it again, so each subsequent pass examines one
+# fewer element.
 
 def merge_two_sorted_list(first_list: list, second_list: list):
     if first_list == None and second_list:
@@ -46,18 +54,27 @@ def merge_two_sorted_list(first_list: list, second_list: list):
     first_list = first_list + second_list
 
     for i in range(len(first_list) - 1):
-        if first_list[i] > first_list[i + 1]:
-            first_list[i], first_list[i + 1] = first_list[i + 1], first_list[i]
+        for j in range((len(first_list) - 1) - i):
+            if first_list[j] > first_list[j + 1]:
+                first_list[j], first_list[j + 1] = first_list[j + 1], first_list[j]
 
     return first_list
-
+# So basically what this sort is doing is that it is bubbling up.
+# the greatest value then excludes it at the top and bubbles up the next one.
 
 # print(merge_two_sorted_list([1, 6], [2, 3, 4]))
+print(merge_two_sorted_list([5, 6], [2, 3, 4]))
 # print(merge_two_sorted_list([], []))
 
 
-# this solution was done using bubble sort and will be an o(1) space implenattion coz we used the same varable that was passed in
-# and this is also O(n) time complexity coz with increase in the vable input there is a corresponding increase in run time.
+# Space Complexity: O(n + m)
+# A new list is created containing all elements from both input lists.
+
+# Time Complexity: O(n + m)
+# One pass is made through the combined list.
+# Note: this is not a complete bubble sort and does not always produce a sorted result.
+# Now i have updated the full bubble sort implemnation and we have complexity as
+# O(n+m)^2
 
 
 ## Now we must take into consideration that a we are dealing with a linked list with a linked list

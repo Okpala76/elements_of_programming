@@ -1,15 +1,9 @@
-# Problem 8.2: Give a linear time, nonrecursive function, that reverses a singly linked
+# Problem 8.2: Given a linear time, nonrecursive function, that reverses a singly linked
 # list. The function should use no more than constant storage beyond that needed for
 # the list itself.
 
 
-class ListNode:
-    def __init__(self, data: int, next: "ListNode | None" = None):
-        self.data = data
-        self.next = next
-
-
-# so we want to take in a funtion that has a node that has it values arrange in ascending order
+# so we want to make a funtion that takes a node that has it values arrange in ascending order
 
 # solve the simplest problem
 # 1 -> 2 -> None
@@ -20,7 +14,7 @@ class ListNode:
 # now when i get a new value(2) i will point head to it  and points its next to tail
 # move tail to head
 # then recurse
-from Merge_two_sorted_list import linked_list_to_list, build_linked_list
+from Merge_two_sorted_list_ import linked_list_to_list, build_linked_list, ListNode
 
 ## Brute force
 
