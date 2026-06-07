@@ -17,7 +17,7 @@ def build_linked_list(values: list[int]) -> ListNode | None:
     return dummy_head.next
 
 
-## this baby returns a list the values of a linked list
+## this baby returns a list from the values of a linked list
 def linked_list_to_list(head: ListNode | None) -> list[int]:
     values = []
 
@@ -36,6 +36,7 @@ def linked_list_to_list(head: ListNode | None) -> list[int]:
 
 
 def merge_two_sorted_list(first_list: list, second_list: list):
+    # edge cases
     if first_list == None and second_list:
         return second_list
     if second_list == None and first_list:
@@ -44,7 +45,8 @@ def merge_two_sorted_list(first_list: list, second_list: list):
         return []
 
     first_list = first_list + second_list
-
+    
+    # sort case
     for i in range(len(first_list) - 1):
         if first_list[i] > first_list[i + 1]:
             first_list[i], first_list[i + 1] = first_list[i + 1], first_list[i]
@@ -52,15 +54,18 @@ def merge_two_sorted_list(first_list: list, second_list: list):
     return first_list
 
 
-# print(merge_two_sorted_list([1, 6], [2, 3, 4]))
+print(merge_two_sorted_list([1, 6], [2, 3, 4]))
 # print(merge_two_sorted_list([], []))
 
 
-# this solution was done using bubble sort and will be an o(1) space implenattion coz we used the same varable that was passed in
-# and this is also O(n) time complexity coz with increase in the vable input there is a corresponding increase in run time.
+# this solution was done using bubble sort and will be an o(1)
+# space implenattion coz we used the same varable that was passed in
+# and this is also O(n) time complexity coz with increase in the variable 
+# input there is a corresponding increase in run time.
 
 
-## Now we must take into consideration that a we are dealing with a linked list with a linked list
+## Now we must take into consideration that a we are dealing with a linked list 
+# with a linked list
 #  and what that means is that we are dealing with nodes
 
 
