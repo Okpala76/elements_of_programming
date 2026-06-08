@@ -1,4 +1,6 @@
 ## Helper functions to help display answers
+
+
 class ListNode:
     def __init__(self, data: int, next: "ListNode | None" = None):
         self.data = data
@@ -43,6 +45,7 @@ def linked_list_to_list(head: ListNode | None) -> list[int]:
 # look at it again, so each subsequent pass examines one
 # fewer element.
 
+
 def merge_two_sorted_list(first_list: list, second_list: list):
     if first_list == None and second_list:
         return second_list
@@ -53,17 +56,23 @@ def merge_two_sorted_list(first_list: list, second_list: list):
 
     first_list = first_list + second_list
 
+<<<<<<< Updated upstream
+=======
+    # sort case
+>>>>>>> Stashed changes
     for i in range(len(first_list) - 1):
         for j in range((len(first_list) - 1) - i):
             if first_list[j] > first_list[j + 1]:
                 first_list[j], first_list[j + 1] = first_list[j + 1], first_list[j]
 
     return first_list
+
+
 # So basically what this sort is doing is that it is bubbling up.
 # the greatest value then excludes it at the top and bubbles up the next one.
 
 # print(merge_two_sorted_list([1, 6], [2, 3, 4]))
-print(merge_two_sorted_list([5, 6], [2, 3, 4]))
+# print(merge_two_sorted_list([5, 6], [2, 3, 4]))
 # print(merge_two_sorted_list([], []))
 
 
@@ -77,7 +86,12 @@ print(merge_two_sorted_list([5, 6], [2, 3, 4]))
 # O(n+m)^2
 
 
+<<<<<<< Updated upstream
 ## Now we must take into consideration that a we are dealing with a linked list with a linked list
+=======
+## Now we must take into consideration that a we are dealing with a linked list
+# with a linked list
+>>>>>>> Stashed changes
 #  and what that means is that we are dealing with nodes
 
 
@@ -95,20 +109,31 @@ def merge_two_sorted_node_list(first_list: ListNode, second_list: ListNode):
     while head:
         values.append(head.data)
         head = head.next
+    # O(n+m)
 
-    value.sort()
+    values.sort()  ## O(n+m)log(n+m)
 
     ## now values are fully updated with the data.. we make it noded again
 
     dummy_head = ListNode(0)
-    end = dummy_head.next
+
+    current = dummy_head
 
     for value in values:
-        end.data = ListNode(value)
-        end = end.next
-
+        current.next = ListNode(value)
+        current = current.next
+    # o(n+m)
     return dummy_head.next
 
+
+
+linked_list = build_linked_list([1, 2, 3, 4, 5])
+linked_list_2 = build_linked_list([7, 8])
+
+print(linked_list_to_list(merge_two_sorted_node_list(linked_list_2, linked_list)))
+
+# time = O(n+m)log(n+m)
+# space = O(n+m)
 
 ## Optimized version
 def merge_two_sorted_node_list(
@@ -150,4 +175,4 @@ second_list = build_linked_list([3, 6, 7])
 merged_list = merge_two_sorted_node_list(first_list, second_list)
 
 
-print(linked_list_to_list(merged_list))
+# print(linked_list_to_list(merged_list))
