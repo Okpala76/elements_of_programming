@@ -43,7 +43,6 @@ def linked_list_to_list(head: ListNode | None) -> list[int]:
 # look at it again, so each subsequent pass examines one
 # fewer element.
 
-
 def merge_two_sorted_list(first_list: list, second_list: list):
     # edge cases
     if first_list == None and second_list:
@@ -54,7 +53,7 @@ def merge_two_sorted_list(first_list: list, second_list: list):
         return []
 
     first_list = first_list + second_list
-
+    
     # sort case
     for i in range(len(first_list) - 1):
         for j in range((len(first_list) - 1) - i):
@@ -62,8 +61,6 @@ def merge_two_sorted_list(first_list: list, second_list: list):
                 first_list[j], first_list[j + 1] = first_list[j + 1], first_list[j]
 
     return first_list
-
-
 # So basically what this sort is doing is that it is bubbling up.
 # the greatest value then excludes it at the top and bubbles up the next one.
 
@@ -82,7 +79,7 @@ print(merge_two_sorted_list([5, 6], [2, 3, 4]))
 # O(n+m)^2
 
 
-## Now we must take into consideration that a we are dealing with a linked list
+## Now we must take into consideration that a we are dealing with a linked list 
 # with a linked list
 #  and what that means is that we are dealing with nodes
 
