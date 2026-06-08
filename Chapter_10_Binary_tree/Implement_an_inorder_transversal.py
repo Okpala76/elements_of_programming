@@ -34,7 +34,7 @@ inorder_transversal(a)
 # Space (n) balanced O(log(n))
 
 
-## iterative 
+## iterative
 
 
 def inorder_transversal_stack(root: BST):
@@ -90,7 +90,51 @@ inorder_transversal_stack(a)
 ## Optimization now to stay with all constriants
 # - No recursion
 # - No Stack
-# - O(1)
+# - O(1) space
+
+# This guy would use a man called Morris transversal
+# an in genius way to use ur tree as a stack or memory
 
 
-def inorder_transversal_op()
+def inorder_transversal_op(node: BST):
+    current = node
+
+    # Because our base case will have current end at None
+    while current:
+        # We can boldly move right becase we know the only situation where
+        # right will be None will be the end
+        # if its not the end it will be pointing back to a prev current
+        if current.left is None:
+            print(current.value)
+            current = current.right  # we return the current to a once current
+
+        else:
+
+            predecessor = current.left
+
+            # so transverse till you meet the end of the right nodes(the rightmost Node)
+            while predecessor.right and predecessor.right != current:
+                predecessor = predecessor.right
+
+            # this is the dicovery leg- here we find the IP(inorder predecessor)
+            # and by pointing it to current we now have a way back to that guy
+            # we can then go ahead to move the current left ward
+            # remember inorder == LR'R
+            if predecessor.right is None:
+                predecessor.right = current
+                current = current.left
+            # so what will make it through the first condition will mean this is a second visit
+            # to the right-most value in the left subtree(that is the def of IP)
+            # therefore we should be looking to detach the pointer to the former head
+            else:
+                predecessor.right = None
+                print(current.value)
+                current = current.right
+
+
+print("This si the morris transversal")
+inorder_transversal_op(a)
+
+# Complexity
+# Time O(n)
+# Space O(1)
