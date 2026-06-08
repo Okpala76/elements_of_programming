@@ -19,7 +19,7 @@ def build_linked_list(values: list[int]) -> ListNode | None:
     return dummy_head.next
 
 
-## this baby returns a list the values of a linked list
+## this baby returns a list from the values of a linked list
 def linked_list_to_list(head: ListNode | None) -> list[int]:
     values = []
 
@@ -47,6 +47,7 @@ def linked_list_to_list(head: ListNode | None) -> list[int]:
 
 
 def merge_two_sorted_list(first_list: list, second_list: list):
+    # edge cases
     if first_list == None and second_list:
         return second_list
     if second_list == None and first_list:

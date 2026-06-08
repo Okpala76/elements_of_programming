@@ -11,24 +11,7 @@
 from tabnanny import check
 from turtle import right
 
-from Test_if_a_tree_is_balanced import BST
-
-a = BST("A")
-b = BST("B")
-c = BST("C")
-d = BST("D")
-e = BST("E")
-f = BST("F")
-g = BST("G")
-
-
-a.left = b
-a.right = c
-
-b.left = d
-b.right = e
-c.left = f
-c.right = g
+from Test_if_a_tree_is_balanced import BST, a
 
 
 def find_path(root: BST, node: BST):
