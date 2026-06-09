@@ -57,10 +57,7 @@ def merge_two_sorted_list(first_list: list, second_list: list):
 
     first_list = first_list + second_list
 
-<<<<<<< Updated upstream
-=======
     # sort case
->>>>>>> Stashed changes
     for i in range(len(first_list) - 1):
         for j in range((len(first_list) - 1) - i):
             if first_list[j] > first_list[j + 1]:
@@ -87,12 +84,8 @@ def merge_two_sorted_list(first_list: list, second_list: list):
 # O(n+m)^2
 
 
-<<<<<<< Updated upstream
-## Now we must take into consideration that a we are dealing with a linked list with a linked list
-=======
 ## Now we must take into consideration that a we are dealing with a linked list
 # with a linked list
->>>>>>> Stashed changes
 #  and what that means is that we are dealing with nodes
 
 
@@ -127,7 +120,6 @@ def merge_two_sorted_node_list(first_list: ListNode, second_list: ListNode):
     return dummy_head.next
 
 
-
 linked_list = build_linked_list([1, 2, 3, 4, 5])
 linked_list_2 = build_linked_list([7, 8])
 
@@ -135,6 +127,7 @@ print(linked_list_to_list(merge_two_sorted_node_list(linked_list_2, linked_list)
 
 # time = O(n+m)log(n+m)
 # space = O(n+m)
+
 
 ## Optimized version
 def merge_two_sorted_node_list(
@@ -166,7 +159,7 @@ def merge_two_sorted_node_list(
 ## exhausted doing what?
 ## ehausted passing its value to the transversing tail
 ## Now based on the question we know that when one of the listes are exhausted the other list will have
-## on value left in it hence why we also collect that with out very own transverser(tail) in line 89
+##  value(s) left in it, hence why we also collect that with out very own transverser(tail) in line 89
 ## and the go ahead to return dummy_next becasue we have intatiated it with a placeholder head (0)
 
 first_list = build_linked_list([2, 5, 9])
@@ -177,3 +170,6 @@ merged_list = merge_two_sorted_node_list(first_list, second_list)
 
 
 # print(linked_list_to_list(merged_list))
+
+# Time complexity O(n)
+# Space O(1)
