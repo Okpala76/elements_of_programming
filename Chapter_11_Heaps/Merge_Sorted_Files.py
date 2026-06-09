@@ -58,14 +58,15 @@ def Merge_sorted_files_bru(files: list[list]):
         smallest_file = None
 
         for file_index in range(len(files)):
-            # trying to know the list we have already exhausted
+            # We try to know if the list at the index in focus(file_index)
+            # is already exhausted.
             if indices[file_index] >= len(files[file_index]):
                 continue
 
             ## we find the exact head at that index
             current = files[file_index][indices[file_index]]
 
-            # Because during this for loop we will visit all heads, so if we find
+            # Because during this for-loop, we will visit all heads, so if we find
             # a smaller than we had found before we update smallest
             if smallest_value is None or current < smallest_value:
                 smallest_value = current
@@ -78,7 +79,12 @@ def Merge_sorted_files_bru(files: list[list]):
         print(smallest_value)
 
         # because now that we have printed its head we can then go ahead
-        # to increase the index list so future searchs will find it next value
+        # to increase the indices list, so future iterations at line 63 will find its next index
+        # line 63, say file one is pointing to index of O
+        # if we find the smallest value in that file we call it the smallest file then
+        # we increase its index from 0 = 1
+        # so when we run 63 again we get 1 and so on till we exhaust the opiawuni
+
         indices[smallest_file] += 1
 
 
