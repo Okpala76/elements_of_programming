@@ -121,11 +121,11 @@ Merge_sorted_files_bru(
 # because our "indices" list will only create space for the list amount
 
 
-## The optimized appraoch use heap / prirority list to cook
+## The optimized approach use heap / prirority list to cook
 ## we call it a K-Way Merge
-# and the trick is in what we pop() from the Heap
-# we know we are to insert in the list(O (n log(k))
-# But how we know what list our pop comes from is the bone of contention
+# and the trick is in, what we pop() from the Heap
+# we know we are to insert in the final sorted list,
+# but how we know what list our pop() comes, so we know what file to add to the heap from, is the bone of contention
 
 import heapq
 
@@ -151,3 +151,19 @@ def Merge_Sorted_files_op(files: list[list]):
             # as you have noticed a python heap workes with a normal list
             # and you declare the list every time u want to push into it
             heapq.heappush(min_heap, (files[file_idx][index], file_idx, index))
+
+
+## Complexity
+# Time O(n log k)
+#   n because we go through every single trade in the file ,
+#   log k because our heap use log k to process the sorted data stucture
+# Space O(k)
+#   because the min_heap uses a max space of k( number of files)
+
+
+## Learning notes
+# I learnt that boundary check should always be done with boundary variables rather than postion checks
+# I learnt this pattern for the optimized is called K-way merge, Because it accepts a unspecified amount of
+# entries is optimized for streaming algorithms
+# I learnt to use the heapq model from python
+#
