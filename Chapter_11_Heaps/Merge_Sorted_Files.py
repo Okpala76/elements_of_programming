@@ -22,6 +22,11 @@
 
 
 # Small problem solution
+from more_itertools import value_chain
+
+from Chapter_10_Binary_tree.Test_if_a_tree_is_balanced import BST
+
+
 def merge_sorted_files(A: list, B: list):
     while True:
         if not A:
@@ -114,3 +119,35 @@ Merge_sorted_files_bru(
 #
 # Space: O(k)
 # because our "indices" list will only create space for the list amount
+
+
+## The optimized appraoch use heap / prirority list to cook
+## we call it a K-Way Merge
+# and the trick is in what we pop() from the Heap
+# we know we are to insert in the list(O (n log(k))
+# But how we know what list our pop comes from is the bone of contention
+
+import heapq
+
+
+def Merge_Sorted_files_op(files: list[list]):
+    min_heap = []
+
+    ## get all first boys into the heap
+    for file_idx in range(len(files)):
+        if len(files[file_idx]) > 0:
+            heapq.heappush(min_heap, (files[file_idx][0], file_idx, 0))
+
+    while min_heap:
+        value, file_idx, index = heapq.heappop(
+            min_heap
+        )  ## Of course u need to define the list you are poping from
+
+        print(value)
+
+        next_index = index + 1
+
+        if next_index < len(files[file_idx]):
+            # as you have noticed a python heap workes with a normal list
+            # and you declare the list every time u want to push into it
+            heapq.heappush(min_heap, (files[file_idx][index], file_idx, index))
