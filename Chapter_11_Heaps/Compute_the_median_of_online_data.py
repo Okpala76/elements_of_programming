@@ -54,11 +54,6 @@ def median_online_data(stream: list):
 import heapq
 
 
-def balance(heap_1, heap_2):
-    moved = -heapq.heappop(heap_1)
-    heapq.heappush(heap_2, moved)
-
-
 def median_online_data_op(stream):
     left = []
     right = []
@@ -72,7 +67,8 @@ def median_online_data_op(stream):
 
         # Invariant 2
         if (len(left) - len(right)) > 1:
-            balance(left, right)
+            moved = -heapq.heappop(left)
+            heapq.heappush(right, moved)
 
         elif len(right) > len(left) + 1:
             moved = heapq.heappop(right)
@@ -90,6 +86,10 @@ def median_online_data_op(stream):
 
         print(median)
 
+
+## Complexity
+# Time = O(log n)
+# Space = O(n)
 
 if __name__ == "__main__":
     ## Brute force
