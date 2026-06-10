@@ -16,9 +16,8 @@
 # then recurse
 from Merge_two_sorted_list_ import linked_list_to_list, build_linked_list, ListNode
 
+
 ## Brute force
-
-
 def reverse_a_single_linked_list(linked_list: ListNode):
     result = []
     current = linked_list
@@ -30,13 +29,6 @@ def reverse_a_single_linked_list(linked_list: ListNode):
     result.reverse()
 
     return result
-
-
-built_list = build_linked_list([1, 2, 4, 5, 6])
-
-reversed_list = reverse_a_single_linked_list(built_list)
-
-print(reversed_list)
 
 
 ## the optimized approach that allows you to cook is making use of pointers
@@ -56,6 +48,12 @@ def optimized_reversed_a_singly_linked_list(linked_list: ListNode):
     return linked_list_to_list(prev)
 
 
-built_list = build_linked_list([1, 2, 3, 4, 5])
+if __name__ == "__main__":
+    # Brute force
+    built_list = build_linked_list([1, 2, 4, 5, 6])
+    reversed_list = reverse_a_single_linked_list(built_list)
+    print(reversed_list)
 
-print(optimized_reversed_a_singly_linked_list(built_list))
+    # Optimized
+    built_list = build_linked_list([1, 2, 3, 4, 5])
+    print(optimized_reversed_a_singly_linked_list(built_list))

@@ -1,3 +1,4 @@
+# 8.1
 ## Helper functions to help display answers
 
 
@@ -66,14 +67,6 @@ def merge_two_sorted_list(first_list: list, second_list: list):
     return first_list
 
 
-# So basically what this sort is doing is that it is bubbling up.
-# the greatest value then excludes it at the top and bubbles up the next one.
-
-# print(merge_two_sorted_list([1, 6], [2, 3, 4]))
-# print(merge_two_sorted_list([5, 6], [2, 3, 4]))
-# print(merge_two_sorted_list([], []))
-
-
 # Space Complexity: O(n + m)
 # A new list is created containing all elements from both input lists.
 
@@ -120,15 +113,6 @@ def merge_two_sorted_node_list(first_list: ListNode, second_list: ListNode):
     return dummy_head.next
 
 
-linked_list = build_linked_list([1, 2, 3, 4, 5])
-linked_list_2 = build_linked_list([7, 8])
-
-print(linked_list_to_list(merge_two_sorted_node_list(linked_list_2, linked_list)))
-
-# time = O(n+m)log(n+m)
-# space = O(n+m)
-
-
 ## Optimized version
 def merge_two_sorted_node_list(
     first_list: ListNode, second_list: ListNode
@@ -162,14 +146,32 @@ def merge_two_sorted_node_list(
 ##  value(s) left in it, hence why we also collect that with out very own transverser(tail) in line 89
 ## and the go ahead to return dummy_next becasue we have intatiated it with a placeholder head (0)
 
-first_list = build_linked_list([2, 5, 9])
-second_list = build_linked_list([3, 6, 7])
 
+if __name__ == "__main__":
+    ## Merege two sorted
+    # So basically what this sort is doing is that it is bubbling up.
+    # the greatest value then excludes it at the top and bubbles up the next one.
 
-merged_list = merge_two_sorted_node_list(first_list, second_list)
+    # print(merge_two_sorted_list([1, 6], [2, 3, 4]))
+    # print(merge_two_sorted_list([5, 6], [2, 3, 4]))
+    # print(merge_two_sorted_list([], []))
 
+    # Brute force
+    linked_list = build_linked_list([1, 2, 3, 4, 5])
+    linked_list_2 = build_linked_list([7, 8])
 
-# print(linked_list_to_list(merged_list))
+    print(linked_list_to_list(merge_two_sorted_node_list(linked_list_2, linked_list)))
 
-# Time complexity O(n)
-# Space O(1)
+    # time = O(n+m)log(n+m)
+    # space = O(n+m)
+
+    # Optimized result
+    first_list = build_linked_list([2, 5, 9])
+    second_list = build_linked_list([3, 6, 7])
+
+    merged_list = merge_two_sorted_node_list(first_list, second_list)
+
+    # print(linked_list_to_list(merged_list))
+
+    # Time complexity O(n)
+    # Space O(1)
