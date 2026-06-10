@@ -88,7 +88,13 @@ def median_online_data_op(stream):
 
 
 ## Complexity
-# Time = O(log n)
+# Each heapq.heappush operation: O(log n)
+
+# Each heapq.heappop operation: O(log n)
+
+# For each element, you do at most 2 pushes and 2 pops (when rebalancing)
+
+# Overall for n elements: O(n log n)
 # Space = O(n)
 
 if __name__ == "__main__":
