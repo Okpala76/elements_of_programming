@@ -54,6 +54,8 @@ def build_cyclic_linked_list(
     return head
 
 
+# Brute force 
+
 def is_cyclic(head: ListNode):
 
     seen_nodes: list[ListNode] = []
@@ -71,7 +73,7 @@ def is_cyclic(head: ListNode):
 
 ## So we create a linked list twice because a linked list is mutable and can't be reused over operations after being mutated just like a list being instanciated and the being poped or append to
 ## Optimzation is
-# # Time O(n)  while loop and search
+# # Time O(n**2)  while loop and search
 # Space: O(n) growing seen_nodes
 
 
