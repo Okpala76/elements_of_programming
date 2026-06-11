@@ -74,6 +74,10 @@ def sorted_first_occurance_op(t, A):
     print(target_find)
 
 
+# complexity
+# Time = Log n
+# space O(1)
+
 if __name__ == "__main__":
 
     sorted_first_occurance_op(5, [1, 2, 3, 4, 5, 5, 5, 5, 6, 7, 8, 9, 9])
