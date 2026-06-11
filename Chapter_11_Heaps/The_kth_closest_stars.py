@@ -29,7 +29,6 @@ def distance(co_ordinates: tuple[int, int, int]):
 # Brute Force
 # for this idea we would calcuate all star distances then store them in a list
 # then sort select the top k ones
-#
 
 
 def the_kth_closest_stars(file: list[tuple[int, list[int]]], k: int):
@@ -47,25 +46,6 @@ def the_kth_closest_stars(file: list[tuple[int, list[int]]], k: int):
     return star_distances[:k]
 
 
-# # Test example
-# stars1 = [
-#     ("a", [10, 0, 0]),  # distance = 10
-#     ("b", [3, 4, 0]),  # distance = 5
-#     ("c", [1, 0, 0]),  # distance = 1
-#     ("d", [0, 2, 0]),  # distance = 2
-#     ("e", [5, 5, 5]),  # distance ≈ 8.66
-# ]
-
-# if __name__ == "__main__":
-#     print("Top 3 closest stars:")
-#     result = the_kth_closest_stars(stars1, 3)
-#     for star_id, dist in result:
-#         print(f"  Star {star_id}: distance = {dist:.2f}")
-
-#     print(f"\nAll stars sorted: {the_kth_closest_stars(stars1, 5)}")
-#     print(f"Top 1 closest: {the_kth_closest_stars(stars1, 1)}")
-
-
 # Complexity
 # Time: O(n log n) because of the sorting and as it super seeds others
 # Space: O(n) because of storing all stars
@@ -74,7 +54,6 @@ def the_kth_closest_stars(file: list[tuple[int, list[int]]], k: int):
 # Optimized approach
 # Using heap
 # from my accessment i see that this will be a max heap operation.
-
 
 import heapq
 
@@ -103,20 +82,6 @@ def the_kth_closest_stars_op(file: list[tuple[str, list[int]]], k: int):
         print(id, -(stars))
 
 
-# Test example
-stars1 = [
-    ("a", [10, 0, 0]),  # distance = 10
-    ("b", [3, 4, 0]),  # distance = 5
-    ("c", [1, 0, 0]),  # distance = 1
-    ("d", [0, 2, 0]),  # distance = 2
-    ("e", [5, 5, 5]),  # distance ≈ 8.66
-]
-
-if __name__ == "__main__":
-    print("Top 3 closest stars:")
-    the_kth_closest_stars_op(stars1, 3)
-
-
 # Complexity
 # Time : O(n log k)
 #        because we visit ever star and use a k sized heap to evaluate
@@ -124,3 +89,25 @@ if __name__ == "__main__":
 
 # Space: O(k)
 #  because we use a heap sized k at worst case
+
+if __name__ == "__main__":
+    # Brute_Force
+    #     print("Top 3 closest stars:")
+    #     result = the_kth_closest_stars(stars1, 3)
+    #     for star_id, dist in result:
+    #         print(f"  Star {star_id}: distance = {dist:.2f}")
+
+    #     print(f"\nAll stars sorted: {the_kth_closest_stars(stars1, 5)}")
+    #     print(f"Top 1 closest: {the_kth_closest_stars(stars1, 1)}")
+
+    # Optimized
+    stars1 = [
+        ("a", [10, 0, 0]),  # distance = 10
+        ("b", [3, 4, 0]),  # distance = 5
+        ("c", [1, 0, 0]),  # distance = 1
+        ("d", [0, 2, 0]),  # distance = 2
+        ("e", [5, 5, 5]),  # distance ≈ 8.66
+    ]
+
+    print("Top 3 closest stars:")
+    the_kth_closest_stars_op(stars1, 3)

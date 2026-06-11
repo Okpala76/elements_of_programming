@@ -3,7 +3,6 @@
 # that returns null if there does not exist a cycle, and the reference to the start of the
 # cycle if a cycle is present. (You do not know the length of the list in advance.) pg. 119
 
-
 ## This is a more straight forward from my first look perspective,
 # I immediately saw that
 #  - this is a boolen output
@@ -128,7 +127,6 @@ def flodys_slow_fast_pointer(head: ListNode):
 ## This the solution take the Complexity of
 # Time = O(n)
 # Space = O(1)
-
 
 if __name__ == "__main__":
 
