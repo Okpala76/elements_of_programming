@@ -73,6 +73,13 @@ def sorted_first_occurance_op(t, A):
 
     print(target_find)
 
+# Method
+# Binary search variant
+# Standard binary search stops immediately when it finds A[M] == k and returns that index. It assumes:
+
+# There's only one occurrence, OR
+# Any occurrence is fine
+# This variant continues searching even after finding a match because it needs the first occurrence.
 
 # complexity
 # Time = Log n
