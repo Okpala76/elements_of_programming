@@ -54,7 +54,8 @@ def build_cyclic_linked_list(
     return head
 
 
-# Brute force 
+# Brute force
+
 
 def is_cyclic(head: ListNode):
 
@@ -92,7 +93,12 @@ def is_cyclic_set_optimized(head: ListNode):
     return None
 
 
-# One thing I learnt is that always remember that Nodes are unique values on there own not just the content.. more like classes
+# One thing I learnt is that always remember that Nodes are unique
+# values on there own not just the content.. more like classes
+
+# complexity
+# Time O(n) Set lookup is O(1) on average, so each node is checked once
+# Space O(n) Storing all nodes
 
 ## Now lets cook the floyd opawuni
 ## Floyd's Cycle Detection (Tortoise and Hare)
