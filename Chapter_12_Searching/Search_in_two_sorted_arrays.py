@@ -1,4 +1,5 @@
-# This problem tries wants us to firnd the kth term or values from two lists merge
+# Black Ninja defincatly need redo for op
+#  This problem tries wants us to firnd the kth term or values from two lists merge
 #  So say we have list A and B it wants the kth term of the resultant be term
 #
 # Brute force pseudo code will be
@@ -26,6 +27,7 @@ def search_in_two_sorted_lists(A, B, k):
         C.extend(B[idx_b:])
 
     return C[k - 1]
+
 
 # complexity
 # Time: O(n)
@@ -70,7 +72,7 @@ def search_in_two_sorted_lists_slight_op(A, B, k):
 # Time: O(k)
 # Space: O(1)
 
-        
+
 def search_in_two_sorted_lists_op(A, B, k, a_start=0, b_start=0):
 
     # A exhausted
@@ -110,8 +112,11 @@ def search_in_two_sorted_lists_op(A, B, k, a_start=0, b_start=0):
             b_start + b_step,
         )
 
+
+# Complexity
+# Time O(log k)
+# Space O(log k) can be one if we use an iterative approach
+
+
 if __name__ == "__main__":
     print(search_in_two_sorted_lists_slight_op([1, 5], [5, 8, 10], 5))
-
-
-
