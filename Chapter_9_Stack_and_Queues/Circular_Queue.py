@@ -1,11 +1,15 @@
-## This problem looks to cook a sweet and intesting store
+# Problem 9.3: Implement a queue API using an array for storing elements. Your API
+# should include a constructor function, which takes as argument the capacity of the
+# queue, enqueue and dequeue functions, a size function, which returns the number
+# of elements stored, and implement dynamic resizing. 
+
+## This problem looks to cook a sweet and intesting story
 # which is a queue that is circular
-# one might ask what does that mean and even look like
-# mean?
+# one might ask what does that mean and even look like?
 # it means that the queue will have a specific size and the queue will not need adjustments when variables are move on
 # in the brute force we will see where linear is used and where the waste occurs
 # then what does it look like?
-# it looks like a simple array treated in a cyclic one by using pointer and a very intutive opiawuni
+# it looks like a simple array treated as a cyclic one by using pointer and a very intutive opiawuni
 
 
 ## Brute force
@@ -33,9 +37,6 @@ class Linear_Queue:
         print("This is O(1) because we just append to the end the incoming")
 
     def size(self):
-        ## Yes i could jys call len(self.arr)
-        ## but if that is going to go through the entire list to count that is another O(n)
-        ## This way size O(1) return
         return len(self.arr)
 
         ## This is O(1)

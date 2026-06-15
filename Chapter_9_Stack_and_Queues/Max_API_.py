@@ -1,5 +1,5 @@
 # #Problem 9.1: Design a stack that supports a max operation, which returns
-#  the maximum value stored in the stack, and throws an exception if the stack is empty. Assume
+# the maximum value stored in the stack, and throws an exception if the stack is empty. Assume
 # elements are comparable. All operations must be O(1) time. If the stack contains n
 # elements, you can use O(n) space, in addition to what is required for the elements
 # themselves.
@@ -10,11 +10,11 @@
 # - throws an exception if the stack is empty
 # - assume elements are comparable?
 # - all operations must be O(1) i.e pop, append, getMax, peek at head
-# - i belive the in addition to ... are the static proces that add to that
+# - i believe the in addition to ... are the static process that add to that
 #   process but does not affect time or space complexity
 
 ## BRUTE FORCE
-#   In brute force we are going to do the no brainer and iterate over teh stack to get max
+# In brute force we are going to do the no brainer and iterate over the stack to get max
 
 
 class Max_API_stack:
@@ -43,19 +43,19 @@ class Max_API_stack:
         return max_value
 
     def peek(self):
-        return self.stack[len(self.stack) - 1]
+        return self.stack[-1]
 
 
-max_stack = Max_API_stack()
-max_stack.append(6)
-max_stack.append(2)
-max_stack.append(4)
-max_stack.append(10)
+## complexity
+# Append = O(1)
+# Pop = O(1)
+# getMax = O(n)
+# peek = O(1)
+# Space = O(n)
 
-print(max_stack.getMax())
 
 ### This is the optimized implementation
-# O(1) at all values
+# O(1) at all functions
 
 
 class Max_API_stack_optimized:
@@ -92,10 +92,20 @@ class Max_API_stack_optimized:
         return self.stack[len(self.stack) - 1]
 
 
-max_stack_op = Max_API_stack_optimized()
-max_stack_op.append(6)
-max_stack_op.append(2)
-max_stack_op.append(4)
-max_stack_op.append(10)
+if __name__ == "__main__":
+    max_stack_op = Max_API_stack_optimized()
+    max_stack_op.append(6)
+    max_stack_op.append(2)
+    max_stack_op.append(4)
+    max_stack_op.append(10)
 
-print(max_stack_op.getMax())
+    print(max_stack_op.getMax())
+    print(max_stack_op.peek())
+
+
+## complexity
+# Append = O(1)
+# Pop = O(1)
+# getMax = O(1)
+# peek = O(1)
+# Space = O(n)
