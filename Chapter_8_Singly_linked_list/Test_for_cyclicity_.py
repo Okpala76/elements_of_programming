@@ -110,8 +110,8 @@ def flodys_slow_fast_pointer(head: ListNode):
     slow = head
     fast = head
 
-    ## we do while fats and fast.next becase that is the
-    # only point where fast.next.next will exist
+    ## we do while fast and fast.next because that is the
+    # only point where we are sure fast.next.next is either a node or None
     while fast and fast.next:
         fast = fast.next.next
         slow = slow.next
@@ -119,7 +119,7 @@ def flodys_slow_fast_pointer(head: ListNode):
         if slow == fast:
             break
     ## because if the while loop fail means that
-    #  a None must have been found in fast.next or fast.next.next
+    #  a None must have been found in fast.next.next
     else:
         return None
 

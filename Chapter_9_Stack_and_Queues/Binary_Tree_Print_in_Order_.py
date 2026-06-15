@@ -4,6 +4,7 @@
 # single line, and the next line should correspond to keys corresponding to nodes of
 # depth d + 1. You cannot use recursion. You may use a single queue, and constant
 # additional storage. For example, you should print
+
 # 314
 # 6 6
 # 271 561 2 271
@@ -27,13 +28,11 @@
 ## Brute force
 
 # For the brute force we are going build an height transverser or getter and
-# build a breath transverser and then call the overlapping each other to get our
+# build a breath transverser and then call them overlapping each other to get our
 # desired result
 
 
 from collections import deque
-
-from zmq import CURVE_PUBLICKEY
 
 
 class BinaryTreeNode:
@@ -42,18 +41,24 @@ class BinaryTreeNode:
         self.left = None
         self.right = None
 
-    # First we write a height getting function
+
+# First we write a height getting function
 
 
 def tree_height(node):
     if node is None:
         return -1
 
-    tree_left_height = tree_height(node.left)
-    tree_right_height = tree_height(node.right)
+    tree_left_height = tree_height(node.left)  # -1
+    tree_right_height = tree_height(node.right)  # -1
 
     return 1 + max(tree_left_height, tree_right_height)
-    ## the final height will give us a height less that the actual height
+    ## the final height will give us a height less than the actual height
+
+
+# Compelexity
+# Time O(n) we are going to visit every node
+# Space O(n) as we recursively call
 
 
 def print_node_at_depth(node: BinaryTreeNode, depth: int):
@@ -62,15 +67,20 @@ def print_node_at_depth(node: BinaryTreeNode, depth: int):
     ## base case
     if depth == 0:
         print(node.value, end=" ")  # we and end=(" ") because print by default adds
-        return  # to it end \n and that create a new line and
-        # since we are looking for a starint
-        # line return of a depth return we do end
+        return  # to it end "\n" and that create a new line and
+        # since we are looking for a straight
+        # line return of a depth return, we do end
         # =(" ") so it just give a space
 
     print_node_at_depth(node.left, depth - 1)
     print_node_at_depth(node.right, depth - 1)
 
-    ## We do the line above so depth only returns value in the depth line
+
+# compexity
+# Time : O(n)
+# space : O(n)
+
+## We do the line above so depth only returns value in the depth line
 
 
 def binary_tree_print_in_order_brute_force(root: BinaryTreeNode):
@@ -86,7 +96,7 @@ def binary_tree_print_in_order_brute_force(root: BinaryTreeNode):
 
 ## This is
 # Time O(n*h)
-# in the worst case where we have a single line bt have 1 left 2 left 3
+# in the worst case where we have a single line but have 1 left 2 left 3
 # h = n
 # Time is O(n^2)
 # Space O(n) because of recursion
@@ -142,3 +152,7 @@ def binary_tree_print_in_order_optimized(root):
 print("This is the optimized bit")
 
 binary_tree_print_in_order_optimized(a)
+
+## complexity
+# Time O(n)
+# Space (n)
