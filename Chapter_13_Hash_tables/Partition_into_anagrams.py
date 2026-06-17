@@ -84,7 +84,7 @@ def partition_into_anagrams_op(words):
 
     for word in words:
 
-        sorted_word = "".join(sorted(word))  ## log k
+        sorted_word = "".join(sorted(word))
 
         if sorted_word not in sorted_list:
             sorted_list[sorted_word] = []
