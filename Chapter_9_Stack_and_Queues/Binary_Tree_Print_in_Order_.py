@@ -80,8 +80,6 @@ def print_node_at_depth(node: BinaryTreeNode, depth: int):
 # Time : O(n)
 # space : O(n)
 
-## We do the line above so depth only returns value in the depth line
-
 
 def binary_tree_print_in_order_brute_force(root: BinaryTreeNode):
 
