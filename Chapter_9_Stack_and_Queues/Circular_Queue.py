@@ -1,7 +1,7 @@
 # Problem 9.3: Implement a queue API using an array for storing elements. Your API
 # should include a constructor function, which takes as argument the capacity of the
 # queue, enqueue and dequeue functions, a size function, which returns the number
-# of elements stored, and implement dynamic resizing. 
+# of elements stored, and implement dynamic resizing.
 
 ## This problem looks to cook a sweet and intesting story
 # which is a queue that is circular
@@ -52,7 +52,7 @@ l_que.enqueue(5)
 l_que.enqueue(1)
 l_que.dequeue()
 
-print(l_que.size())
+# print(l_que.size())
 
 # This  has complexity
 # enqueue = O(1)
@@ -82,7 +82,7 @@ class Circular_Queue:
 
     def dequeue(self):
         if self.count == 0:
-            raise IndexError("Thers is no list here sir")
+            raise IndexError("There's is no value here sir")
 
         temp = self.arr[self.front]
         # Last element being removed

@@ -8,9 +8,6 @@
 
 # first a function to find the path to each node and store that in a list
 
-from tabnanny import check
-from turtle import right
-
 from Test_if_a_tree_is_balanced import BST, a
 
 
