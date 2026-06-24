@@ -1,13 +1,12 @@
 # Exciting one we are now in the BST
 # funny how we are getting here now after using this man for so long already
 # recursion is his baby by the way and there two are lovers
-# apparently there is a guy called Morris that makes use of pointers to help mitigate the
+# apparently, there is a guy called Morris that makes use of pointers to help mitigate the
 # space consumption that comes with recursion
 #
 #
 #
 #
-# Now lets get into it for test opiawuni
 #
 # 10.1 Test if a binary tree is balanced
 # A binary tree is said to be balanced if for each node in the tree, the difference in the
@@ -42,14 +41,14 @@ b.right = e
 
 if __name__ == "__main__":
 
-    def height(node):
+    def get_height(node):
         ## Base Case
         if node is None:
             return -1
 
         ## recursive case
-        left = height(node.left)
-        right = height(node.right)
+        left = get_height(node.left)
+        right = get_height(node.right)
 
         return 1 + max(left, right)
 
@@ -58,8 +57,8 @@ if __name__ == "__main__":
         if node is None:
             return True
 
-        left = height(node.left)
-        right = height(node.right)
+        left = get_height(node.left)
+        right = get_height(node.right)
 
         if abs(left - right) > 1:
             return False
@@ -67,6 +66,9 @@ if __name__ == "__main__":
         return is_balanced(node.left) and is_balanced(node.right)
 
     print(is_balanced(a))
+
+    # Time O(n^2)
+    # SPace  o(n)
 
     ### Optimized code
 
@@ -79,22 +81,22 @@ if __name__ == "__main__":
         left_node = is_balanced_op(node.left)
         right_node = is_balanced_op(node.right)
 
-        height = 1 + max(left_node[0], right_node[0])
+        get_height = 1 + max(left_node[0], right_node[0])
 
         if not (
             left_node[1] and right_node[1]
         ):  # if not left_node[1] or not right_node[1]:
-            return (height, False)
+            return (get_height, False)
 
         balanced = abs(left_node[0] - right_node[0]) <= 1
 
-        return (height, balanced)
+        return (get_height, balanced)
 
     print(is_balanced_op(a)[1])
 
     ### Agorithm pattern Post-Order Transversal
     # Time O(n) every node is visited
-    # Space O(h) height of the tree
+    # Space O(h) get_height of the tree
 
     # AI Optimized
 
@@ -103,17 +105,17 @@ if __name__ == "__main__":
             if current is None:
                 return (-1, True)
 
-            left_height, left_balanced = check_balance(current.left)
+            left_get_height, left_balanced = check_balance(current.left)
             if not left_balanced:
                 return (0, False)
 
-            right_height, right_balanced = check_balance(current.right)
+            right_get_height, right_balanced = check_balance(current.right)
             if not right_balanced:
                 return (0, False)
 
-            balanced = abs(left_height - right_height) <= 1
-            height = 1 + max(left_height, right_height)
+            balanced = abs(left_get_height - right_get_height) <= 1
+            get_height = 1 + max(left_get_height, right_get_height)
 
-            return (height, balanced)
+            return (get_height, balanced)
 
         return check_balance(node)[1]

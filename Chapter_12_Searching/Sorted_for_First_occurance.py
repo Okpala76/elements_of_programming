@@ -52,7 +52,7 @@ def sorted_first_occurance_op(t, A):
     while L <= R:
         M = L + (R - L) // 2
 
-        # if A[R] == t and target_find > R: ## this is necessary usless because if even if we find it there, we will
+        # if A[R] == t and target_find > R: ## this is usless because even if we find it there, we will
         #                                   ##  still to a full recursion before we can confrim it to be the first one.
         #     target_find = R
 

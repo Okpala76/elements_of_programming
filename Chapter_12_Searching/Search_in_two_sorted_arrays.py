@@ -1,5 +1,5 @@
 # Black Ninja defincatly need redo for op
-#  This problem tries wants us to firnd the kth term or values from two lists merge
+#  This problem tries wants us to find the kth term or values from two lists merge
 #  So say we have list A and B it wants the kth term of the resultant be term
 #
 # Brute force pseudo code will be
