@@ -71,7 +71,6 @@ if __name__ == "__main__":
     # SPace  o(n)
 
     ### Optimized code
-
     def is_balanced_op(node: BST):
         ## base case
         if node is None:
@@ -83,9 +82,7 @@ if __name__ == "__main__":
 
         get_height = 1 + max(left_node[0], right_node[0])
 
-        if not (
-            left_node[1] and right_node[1]
-        ):  # if not left_node[1] or not right_node[1]:
+        if not (left_node[1] and right_node[1]):
             return (get_height, False)
 
         balanced = abs(left_node[0] - right_node[0]) <= 1
@@ -96,7 +93,7 @@ if __name__ == "__main__":
 
     ### Agorithm pattern Post-Order Transversal
     # Time O(n) every node is visited
-    # Space O(h) get_height of the tree
+    # Space O(n) every node is visted by recursion.
 
     # AI Optimized
 
