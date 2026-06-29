@@ -12,6 +12,23 @@ class BST:
         self.right = None
 
 
+a = BST(3)
+b = BST(2)
+c = BST(6)
+d = BST(1)
+e = BST(3)
+f = BST(5)
+g = BST(7)
+
+a.left = b
+a.right = c
+
+b.left = d
+b.right = e
+c.left = f
+c.right = g
+
+
 def inorder_list(node: BST, result):
     if node is None:
         return None
@@ -107,20 +124,4 @@ def is_BST_op(node):
 #  Each node must obey every ancestor constraint that brought us there.
 
 if __name__ == "__main__":
-    a = BST(5)
-    b = BST(3)
-    c = BST(7)
-    d = BST(2)
-    e = BST(4)
-    f = BST(6)
-    g = BST(8)
-
-    a.left = b
-    a.right = c
-
-    b.left = d
-    b.right = e
-    c.left = f
-    c.right = g
-
     print(is_BST_op(a))
