@@ -8,7 +8,7 @@
 
 # first a function to find the path to each node and store that in a list
 
-from Test_if_a_tree_is_balanced import BST, a
+from Test_if_a_tree_is_balanced_ import BST, a, d, e
 
 
 def find_path(root: BST, node: BST):
@@ -38,7 +38,13 @@ def find_path(root: BST, node: BST):
         return False
 
     checker(root)
-    return dir
+    if checker:
+        return dir
+    else:
+        return IndexError("node not found in tree")
+
+
+print(find_path(a, d))
 
 
 def lowest_common_ancestor(root: BST, A: BST, B: BST):
@@ -63,7 +69,24 @@ def lowest_common_ancestor(root: BST, A: BST, B: BST):
     return current
 
 
-print(lowest_common_ancestor(a, d, g).value)
+## Complexity
+# find path:
+# Time O(n) Because this is BT and not BST we have to search all to find the node
+# and worst case is that we go round the entire tree
+# Space O(h) the worst case will have the list populated
+# to values the height of the three as we append and pop
+
+
+# LCA Complexity
+# Time: O(n) but O(2n+ h) becuse we do path_find twice and then we iterate the tree a
+# a third time to see where our paths align and that worst case is the lenght of the list
+# Hence O(n) + O(n) + O(h) == O(n)
+
+# Space: find path O(h) and O(1) == O(h)
+
+# Final
+# Time = O(n)
+# Space = O(h)
 
 
 ### Now let use seek optimization
@@ -95,11 +118,8 @@ def lowest_common_ancestor_op(root: BST, A: BST, B: BST):
 
         return total
 
-    helper(current)
+    helper(current) 
     return lca
-
-
-print(lowest_common_ancestor_op(a, d, e).value)
 
 
 # Bruteforce
@@ -109,3 +129,9 @@ print(lowest_common_ancestor_op(a, d, e).value)
 # "What useful information can each subtree return upward?"
 
 # This is actually one of those EPI problems where the optimization is not mainly about Big-O time.
+# Time is O(n) : as we go through the entire list once
+# Space is O(n): recursion
+
+if __name__ == "__main__":
+    # print(lowest_common_ancestor(a, d, e).value)
+    print(lowest_common_ancestor_op(a, d, e).value)

@@ -1,4 +1,4 @@
-# Exciting one we are now in the BST
+# Exciting one we are now in BT
 # funny how we are getting here now after using this man for so long already
 # recursion is his baby by the way and there two are lovers
 # apparently, there is a guy called Morris that makes use of pointers to help mitigate the

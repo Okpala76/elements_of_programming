@@ -14,7 +14,7 @@
 
 # Brute Force
 
-from Test_if_a_tree_is_balanced import BST, a
+from Chapter_10_Binary_tree.Test_if_a_tree_is_balanced_ import BST, a
 
 
 def inorder_transversal(root: BST):
