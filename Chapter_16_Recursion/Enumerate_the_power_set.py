@@ -9,11 +9,10 @@
 
 
 def power_set(the_set: list):
-    result = []
 
     def power_setter(start: int, current: list):
         # every current is a subset
-        result.append(current.copy())
+        print(current)
 
         for i in range(start, len(the_set)):
             # update the curent list
@@ -27,8 +26,11 @@ def power_set(the_set: list):
 
     power_setter(0, [])
 
-    return result
-
 
 if __name__ == "__main__":
-    print(power_set(["A", "B", "C"]))
+    power_set(["A", "B", "C"])
+
+# complexity
+# Time : O(2^n) because we visit every node in the binary tree illustartion atleast once,
+# where n is the number of values in the set
+# Space: O(2^n) 
