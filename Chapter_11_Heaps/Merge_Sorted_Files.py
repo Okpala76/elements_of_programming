@@ -24,7 +24,7 @@
 # Small problem solution
 from more_itertools import value_chain
 
-from Chapter_10_Binary_tree.Test_if_a_tree_is_balanced import BST
+from Chapter_10_Binary_tree.Test_if_a_tree_is_balanced_ import BST
 
 
 def merge_sorted_files(A: list, B: list):
