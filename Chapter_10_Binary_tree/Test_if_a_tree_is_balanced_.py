@@ -31,13 +31,14 @@ c = BST("C")
 d = BST("D")
 e = BST("E")
 f = BST("F")
-
+g = BST("G")
 a.left = b
 a.right = c
 
 b.left = d
 b.right = e
-# e.left = f  ## comment this and print for false return
+c.left = f
+c.right = g  ## comment this and print for false return
 
 if __name__ == "__main__":
 
