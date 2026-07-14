@@ -27,12 +27,12 @@ def huffman_code(frequency_symbol: list[tuple[int, int]]) -> dict:
     min_heap = []
     unique_id = count()
 
-    for sym, fre in frequency_symbol:
+    for sym, fre in frequency_symbol:  # O(n)
         curr_node = Node(sym, fre)
 
-        heapq.heappush(min_heap, (fre, next(unique_id), curr_node))
+        heapq.heappush(min_heap, (fre, next(unique_id), curr_node))  # O(log n)
 
-    while len(min_heap) > 1:
+    while len(min_heap) > 1:  # O(n) and O(log n)
 
         fre_1, _, node_1 = heapq.heappop(min_heap)
         fre_2, _, node_2 = heapq.heappop(min_heap)
@@ -50,7 +50,9 @@ def huffman_code(frequency_symbol: list[tuple[int, int]]) -> dict:
 
     code_book = {}
 
-    def code_dict_creator(node: Node, binary_str: str):
+    def code_dict_creator(
+        node: Node, binary_str: str
+    ) -> None:  # Space = O(h) height of the tree, time o(n becase we visit all man)
         if node is None:
             return None
 
@@ -76,3 +78,8 @@ if __name__ == "__main__":
             ]
         )
     )
+
+
+## Complexity
+# Time = O(n log n ) .. n is for the heap population, log n is for the combination solution in getting the root heap
+# Space = O(n) the size of the heap
