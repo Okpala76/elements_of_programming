@@ -83,3 +83,5 @@ if __name__ == "__main__":
 ## Complexity
 # Time = O(n log n ) .. n is for the heap population, log n is for the combination solution in getting the root heap
 # Space = O(n) the size of the heap
+
+# Pattern = Huffman code + heap +binary tree
