@@ -80,7 +80,6 @@ def maze_runner(maze: list[list[int]], start: tuple[int, int], end: tuple[int, i
         # and then go ahead to return false of that direction
         # and go on to consider other directions and consider this one as a dead end
         path.pop()
-        visited.remove((row, column))
 
         return False
 
