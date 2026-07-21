@@ -14,14 +14,38 @@
 
 # Brute Force
 
-from Chapter_10_Binary_tree.Test_if_a_tree_is_balanced_ import BST, a
+from Test_if_a_tree_is_balanced_ import BST, a
+
+
+class BST:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+
+a = BST("4")
+b = BST("2")
+c = BST("6")
+d = BST("1")
+e = BST("3")
+f = BST("5")
+g = BST("7")
+
+a.left = b
+a.right = c
+
+b.left = d
+b.right = e
+c.left = f
+c.right = g  ## comment this and print for false return
 
 
 def inorder_transversal(root: BST):
     if root is None:
         return None
 
-    left = inorder_transversal(root.left)
+    left = inorder_transversal(root.left)  # none
     print(root.value)
     right = inorder_transversal(root.right)
 
@@ -29,14 +53,12 @@ def inorder_transversal(root: BST):
 print("This is recursive")
 inorder_transversal(a)
 
-# this would be
+# Complexity
 # Time O(n)
 # Space (n) balanced O(log(n))
 
 
 ## iterative
-
-
 def inorder_transversal_stack(root: BST):
     current = root
     stack = []
@@ -58,15 +80,15 @@ def inorder_transversal_stack(root: BST):
 
         current = (
             current.right
-        )  # the right is the last articl because?   we are doing an inorder transversal LR'R
+        )  # the right is the last article because?   we are doing an inorder transversal LR'R
 
 
-print("This is iterative")
+print("This is stack")
 inorder_transversal_stack(a)
 
 # Complexity
 # Time O(n) all nodes visited atleast once
-# Space O(n)   growing stack in relaton to opiawuni
+# Space O(n) 
 
 # push A
 # push B
@@ -101,15 +123,14 @@ def inorder_transversal_op(node: BST):
 
     # Because our base case will have current end at None
     while current:
-        # We can boldly move right becase we know the only situation where
+        # We can boldly move right because we know the only situation where
         # right will be None will be the end
         # if its not the end it will be pointing back to a prev current
         if current.left is None:
             print(current.value)
-            current = current.right  # we return the current to a once current
+            current = current.right  # we return the current to a prev current
 
         else:
-
             predecessor = current.left
 
             # so transverse till you meet the end of the right nodes(the rightmost Node)
@@ -132,7 +153,7 @@ def inorder_transversal_op(node: BST):
                 current = current.right
 
 
-print("This si the morris transversal")
+print("This is the morris transversal")
 inorder_transversal_op(a)
 
 # Complexity
