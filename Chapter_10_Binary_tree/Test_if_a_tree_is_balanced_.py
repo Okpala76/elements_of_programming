@@ -21,8 +21,8 @@
 class BST:
     def __init__(self, value):
         self.value = value
-        self.left = None
-        self.right = None
+        self.left: "BST | None" = None
+        self.right: "BST | None" = None
 
 
 a = BST("A")
@@ -32,6 +32,7 @@ d = BST("D")
 e = BST("E")
 f = BST("F")
 g = BST("G")
+
 a.left = b
 a.right = c
 
@@ -72,7 +73,7 @@ if __name__ == "__main__":
     # SPace  o(n)
 
     ### Optimized code
-    def is_balanced_op(node: BST):
+    def is_balanced_op(node: BST | None):
         ## base case
         if node is None:
             return (-1, True)

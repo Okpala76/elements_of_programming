@@ -16,14 +16,6 @@
 
 from Test_if_a_tree_is_balanced_ import BST, a
 
-
-class BST:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
-
-
 a = BST("4")
 b = BST("2")
 c = BST("6")
@@ -50,8 +42,8 @@ def inorder_transversal(root: BST):
     right = inorder_transversal(root.right)
 
 
-print("This is recursive")
-inorder_transversal(a)
+# print("This is recursive")
+# inorder_transversal(a)
 
 # Complexity
 # Time O(n)
@@ -83,12 +75,12 @@ def inorder_transversal_stack(root: BST):
         )  # the right is the last article because?   we are doing an inorder transversal LR'R
 
 
-print("This is stack")
-inorder_transversal_stack(a)
+# print("This is stack")
+# inorder_transversal_stack(a)
 
 # Complexity
 # Time O(n) all nodes visited atleast once
-# Space O(n) 
+# Space O(n)
 
 # push A
 # push B
@@ -153,9 +145,77 @@ def inorder_transversal_op(node: BST):
                 current = current.right
 
 
-print("This is the morris transversal")
-inorder_transversal_op(a)
+# print("This is the morris transversal")
+# inorder_transversal_op(a)
 
 # Complexity
 # Time O(n)
 # Space O(1)
+
+
+class BST_parent:
+    def __init__(self, value):
+        self.value = value
+        self.left: "BST_parent | None" = None
+        self.right: "BST_parent | None" = None
+        self.parent: "BST_parent | None" = None
+
+
+# Use INTEGERS, not strings
+a = BST_parent(4)
+b = BST_parent(2)
+c = BST_parent(6)
+d = BST_parent(1)
+e = BST_parent(3)
+f = BST_parent(5)
+g = BST_parent(7)
+
+a.left = b
+a.right = c
+b.parent = a
+c.parent = a
+
+b.left = d
+b.right = e
+d.parent = b
+e.parent = b
+
+c.left = f
+c.right = g
+f.parent = c
+g.parent = c
+
+
+def inorder_transversal_parent(node: BST_parent):
+    if not node:
+        return []
+
+    result = []
+    curr = node
+    prev = None
+
+    while curr:
+        # if we are going to the left
+        if prev == curr.parent:
+            if curr.left:
+                prev = curr
+                curr = curr.left
+            else:
+                result.append(curr.value)
+                prev = curr
+                curr = curr.right if curr.right else curr.parent
+        # when coming back from the left
+        elif prev == curr.left:
+            result.append(curr.value)
+            prev = curr
+            curr = curr.right if curr.right else curr.parent
+        else:
+            # prev == curr.right
+            prev = curr
+            curr = curr.parent
+
+    return result
+
+
+print("This is the parent pointer traversal")
+print(inorder_transversal_parent(a))
