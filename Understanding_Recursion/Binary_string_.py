@@ -1,19 +1,19 @@
 ## Brute force using recursion
-## We are trying to find all binary possiblities in a number range 
+## We are trying to find all binary possiblities in a number range
 ## So for 2 we will have [[0,0],[0,1],[1,0],[1,1]]
 
 
-def binary_possiblities(n: int):
+def binary_possiblities_take_one(n: int):
     result = []
 
     def backtracking(index: int, current_list: list):
-        ## base case 
+        ## base case
         if len(current_list) == n:
             result.append(
-                current_list.copy() 
+                current_list.copy()
             )  ## This was missing in my solution, .copy() call allows us to continue iteration on the existing list without clearing it out
             return
-        
+
         ## recursive case
         current_value = 0
         while current_value < 2:
@@ -26,9 +26,8 @@ def binary_possiblities(n: int):
 
     return result
 
-print(binary_possiblities(2))
 
-
+print(binary_possiblities_take_one(2))
 
 
 # Alternative implementation
