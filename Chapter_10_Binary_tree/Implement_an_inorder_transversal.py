@@ -161,7 +161,6 @@ class BST_parent:
         self.parent: "BST_parent | None" = None
 
 
-# Use INTEGERS, not strings
 a = BST_parent(4)
 b = BST_parent(2)
 c = BST_parent(6)
@@ -188,9 +187,8 @@ g.parent = c
 
 def inorder_transversal_parent(node: BST_parent):
     if not node:
-        return []
+        return
 
-    result = []
     curr = node
     prev = None
 
@@ -201,12 +199,12 @@ def inorder_transversal_parent(node: BST_parent):
                 prev = curr
                 curr = curr.left
             else:
-                result.append(curr.value)
+                print(curr.value)
                 prev = curr
                 curr = curr.right if curr.right else curr.parent
         # when coming back from the left
         elif prev == curr.left:
-            result.append(curr.value)
+            print(curr.value)
             prev = curr
             curr = curr.right if curr.right else curr.parent
         else:
@@ -214,8 +212,10 @@ def inorder_transversal_parent(node: BST_parent):
             prev = curr
             curr = curr.parent
 
-    return result
-
 
 print("This is the parent pointer traversal")
 print(inorder_transversal_parent(a))
+
+# Complexity
+# Time : O(n) we visit all nodes at least
+# Space: O(1) we hold only variables
