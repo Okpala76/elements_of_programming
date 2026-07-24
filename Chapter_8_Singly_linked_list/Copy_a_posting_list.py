@@ -15,7 +15,7 @@ class PostingListNode:
     def __init__(
         self,
         value: int,
-        posting: "PostingListNode" = None,
+        posting: "PostingListNode | None" = None,
         next: "PostingListNode | None" = None,
     ):
         self.posting = posting

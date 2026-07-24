@@ -78,17 +78,17 @@ def delay_schedule_brute_force(tasks: list[Task]) -> int:
 ## OPTI
 
 
-class Task:
-    def __init__(self, duration: int, prereq: list[Task] | None = None):
+class Task_Opti:
+    def __init__(self, duration: int, prereq: list[Task_Opti] | None = None):
         self.duration = duration
         self.prereq = prereq or []
 
 
-def delay_schedule(tasks: list[Task]) -> int:
-    state: dict[Task, int] = {}
-    memo: dict[Task, int] = {}
+def delay_schedule(tasks: list[Task_Opti]) -> int:
+    state: dict[Task_Opti, int] = {}
+    memo: dict[Task_Opti, int] = {}
 
-    def completion_time(task: Task) -> int:
+    def completion_time(task: Task_Opti) -> int:
         task_state = state.get(task, 0)
 
         # We returned to a task still in the current DFS path.
@@ -154,10 +154,10 @@ def delay_schedule(tasks: list[Task]) -> int:
 #   = 9
 
 if __name__ == "__main__":
-    A = Task(3)
-    B = Task(2)
-    C = Task(4, [A])
-    D = Task(1, [A, B])
-    E = Task(2, [C, D])
+    A = Task_Opti(3)
+    B = Task_Opti(2)
+    C = Task_Opti(4, [A])
+    D = Task_Opti(1, [A, B])
+    E = Task_Opti(2, [C, D])
 
     print(delay_schedule([A, B, C, D, E]))
