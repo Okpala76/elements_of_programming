@@ -86,7 +86,7 @@ def count_2D_ways_memo(two_d_arr: list[list[int]]):
 # calculates each cell once → n * m
 
 
-def count_2D_ways_dp(two_d_arr: list[list[int]]):
+def count_2D_ways_dp(two_d_arr: list[list[bool]]):
     row = len(two_d_arr)
     col = len(two_d_arr[0])
 

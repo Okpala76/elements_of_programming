@@ -23,7 +23,7 @@ class Node:
     right: "Node | None" = None
 
 
-def huffman_code(frequency_symbol: list[tuple[int, int]]) -> dict:
+def huffman_code(frequency_symbol: list[tuple[str, int]]) -> dict:
     min_heap = []
     unique_id = count()
 
@@ -51,7 +51,7 @@ def huffman_code(frequency_symbol: list[tuple[int, int]]) -> dict:
     code_book = {}
 
     def code_dict_creator(
-        node: Node, binary_str: str
+        node: Node | None, binary_str: str
     ) -> None:  # Space = O(h) height of the tree, time o(n becase we visit all man)
         if node is None:
             return None
